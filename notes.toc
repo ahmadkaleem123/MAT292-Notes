@@ -6,3 +6,4 @@
 \contentsline {subsection}{\numberline {3.1}Reducing non homogeneous systems to homogeneous systems}{2}{subsection.3.1}%
 \contentsline {section}{\numberline {4}Laplace Transform}{2}{section.4}%
 \contentsline {section}{\numberline {5}Inverse Laplace Transform}{3}{section.5}%
+\contentsline {section}{\numberline {6}Solving ODEs with Laplace Transform}{3}{section.6}%
