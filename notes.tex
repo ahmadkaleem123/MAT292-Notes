@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\title{MAT292 Notes}
+\date{September 2021}
+
+\begin{document}
+
+\maketitle
+
+\section{Existence and Uniqueness Theorem}
+
+\begin{enumerate}
+    \item We need $f(t,y)$ continuous in the rectangle to get existence
+    \item We need $f_y(t,y)$ continuous in the rectangle to get uniqueness
+    \item E \& U Theorem is sufficient but not necessary. i.e. these conditions imply solution but not having these conditions doesnt mean there is no solution
+\end{enumerate}
+
+\section{Autonomous Equations and Population Dynamics}
+
+\subsection{Logistic Growth}
+
+If uninhibited, we assume exp. growth however in the long run,population is limited to $K$
+
+Model: $y' = r h(y) y$
+
+We want $h(y) \approx 1$ if $y$ is small, $h(y) < 1$ if $y < k$, $h(y) = 0 $ if $y=k$ and $h(y) < 0$ if $y>K$ 
+
+This can thus be modelled as $y' = r(1 - \frac{y}{k})y$. This has two equilibria namely at $y=0$ and $yk$. The inflection points can be found by setting the derivative $y''$ to 0.
+
+\section{Direction Fields and Orbits}
+
+\subsection{Reducing non homogeneous systems to homogeneous systems}
+
+Lets take a solution $x$ and write it as $x = \phi + v$ where $v$ is a constant. Then $x' = Ax + b \rightarrow \phi = A(\phi + v) + b$. Since $x_{eq} = A^{-1}b$, $Av+b =0$ by the equilibrium condition ($\phi' - A \phi$) we have that $\phi' = A \phi$. So that $x = \phi + x_{eq}$ where $\phi$ is a solution of the homogeneous system. 
+
+Every solution of the non homogeneous problem can be written as a solution of the homogeneous problem plus the equilibrium. 
+
+\section{Laplace Transform}
+
+\begin{itemize}
+    \item Remark: The laplace transform will allow us to reduce solving an ODE to solving an algebraic equation
+    \item Solve algebraic equation and use the inverse laplace transform to get the solution to the ODE
+    \item Definition: If $f$ is defined on $[0, \infty]$, the Laplace Transform is defined as $F(s) = \int_{0}^{\infty} e^{-st} f(t) \, dt$
+    \item We write $F = \mathcal{L} \{f\}$
+    \item We use uppercase letters for Laplace transform e.g. $G(s)$ is the LT of $g(t)$
+    \item Example: For $f(t) = e^{at}$, we get $F(s) = \mathcal{L}\{f\}(s) = \int_{0}^{\infty} e^{-st} e^{at} \, dt = \lim_{b\rightarrow \infty} \int_{0}^{b} e^{(a-s)t} \, dt = \lim_{b\rightarrow \infty} \frac{1}{a-s} \left( e^{(a-s)b} - 1 \right) = \frac{1}{s-a}$ if $s > a$
+    \item $\mathcal{L} \{1\} = \frac{1}{s}$
+    \item Theorem: $\mathcal{L} \{c_1f_1 + c_2f_2\} = c_1 \mathcal{L} \{f_1\} + c_2 \mathcal{L} \{f_2\}$
+    \item To find $\mathcal{L} \{\sin(at)\}$, write $\sin(at) = \frac{1}{2i} (e^{iat} - e^{-iat})$ and use the theorem above
+    \item This will give $\frac{1}{2i} \left(\frac{1}{s - ia}\right) - \frac{1}{2i} \left(\frac{1}{s+ia}\right) = \frac{a}{s^2 + a^2}$ for $s > 0$
+    \item Example: LT of $f(t) = e^{2t}$ for $0 \leq t < 1$ and $f(t) = 4$ for $1 \leq t$
+    \item Divide the integral into two seperate parts and evaluate it
+    \item Exponential order: A function $f(t)$ is of exponential order for $M > 0$, $K > 0$ and $a \in \mathbb{R} $ if $|f(t)| \leq Ke^{at}$ for $t \geq M$ i.e. $f$ eventually becomes between two exponential functions
+    \item Theorem: Every bounded function is of exponential order
+    \item A function $f(t)$ is piecewise continuous on $[a,b]$ iff there are finitely many "jump points" between $a$ and $b$ $a \leq t_0 < t_1 < \dots < t_{k-1} < t_k = b$ such that $f$ is continuous on each of the intervals $(t_i, t_{i+1})$ and $f$ has finite limits at the jump points.
+    \item Theorem: If for a function $f(t)$, we have that $f$ is piecewise continuous on $[0, A]$ $\forall A \geq 0$ and $f$ is of exponential order for $M, k$ and $a$. Then $\mathcal{L} \{f\}$ exists for all $s > a$. 
+    \item Theorem: If $f(t)$ is of exponential order then we have: $F(s) \rightarrow 0$ as $s \rightarrow \infty$ where $F(s)$ is the L.T. of $f$
+    \item Theorem: If $f$ is continuous and $f'$ is piecewise continuous on any interval $[0, A]$ and $f, f'$ are of exponential order for $M, k, a$ then $\mathcal{L} \{f'\} (s) = s \mathcal{L} \{f\} (s) - f(0)$ for $s>a$. Under the same conditions for $n$ derivatives, $\mathcal{L} \{f^{(n)}\} (s) = s^n \mathcal{L} \{f\} (s) - s^{n-1} f(0) - s^{n-2} f'(0) - \dots sf^{(n-2)} (0) - f^{(n-1)} (0)$ 
+    \item Proof: $\mathcal{L} \{f'\} (s) = \int_{0}^{\infty} e^{-st} f'(t) \, dt = \lim_{b \rightarrow \infty} \left(\int_{0}^{b} e^{-st} f'(t) \, dt \right) $
+    
+    $= \lim_{b \rightarrow \infty} \left( \left[ e^{-st} f(t) \right]_{0}^{b} + \int_{0}^{b} f(t) s e^{-st} \, dt \right) = \lim_{b \rightarrow \infty} \left( e^{-bs}f(b) - f(0) + s \int_{0}^{b} f(t) e^{-st} \, dt \right) $ 
+    $= s \mathcal{L} \{f\} (s) - f(0)$ where $s > a$ (by definition of exponential order)
+\end{itemize} 
+
+\section{Inverse Laplace Transform}
+
+\begin{itemize}
+    \item Theorem: If $f(t), g(t)$ are piecewise continuous and of exponential order, then $\mathcal{L} \{f\} = \mathcal{L} \{g\} \implies f(t) = g(t)$
+    \item Technicality: Take $f(t) = e^t$, $g(t) = \begin{cases} 
+        e^t & t \neq 5 \\
+        0 & t = 5  
+     \end{cases}$. Clearly $\mathcal{L} \{f\} = \mathcal{L} \{g\}$ but $f(t) \neq g(t) \, \forall t$
+     \item Convention: We write $f(t) = g(t)$ as long as they are the same whenever they are continuous
+     \item Definition: If $f$ is piecewise continuous and of exponential order and $\mathcal{L} \{f\} (s) = F(s)$, then we call $f(t) = \mathcal{L}^{-1} \{F\} (t)$
+     \item There is a complex analysis formula (Mellin Transform) to find $\mathcal{L}^{-1} \{F\}$. However this is rarely used in practice and we instead use tables
+     \item 
+\end{itemize}
+
+
+\end{document}
