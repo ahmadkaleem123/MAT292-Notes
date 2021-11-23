@@ -107,8 +107,35 @@ Every solution of the non homogeneous problem can be written as a solution of th
         \item Solving gives $Y(s) = \frac{s^3 - s^2 + 2s}{(s^2+1)^2}$
         \item We use a repeated partial fraction decomposition to write $Y(s)$ as $\frac{As+B}{s^2+1} + \frac{s+1}{(s^2+1)^2}$
         \item We know $y(t) = \mathcal{L} ^{-1} \{ \frac{s}{s^2+1} - \frac{1}{s^2+1} + \frac{s}{(s^2+1)^2} + \frac{1}{(s^2+1)^2} \}$
-        \item For the third term, we use $\mathcal{L} \{t \cdot f(t) \} = \frac{-d}{ds} F(s)$ and then get $ y(t) = \cos t - \sin t + \frac{1}{2}t \sin t$
+        \item For the third term, we use $\mathcal{L} \{t \cdot f(t) \} = \frac{-d}{ds} F(s)$ and then get $ y(t) = \cos t - \sin t + \frac{1}{2} t \sin t + \frac{1}{2} \sin t - \frac{1}{2} t \cos t $
     \end{itemize}
+\end{itemize}
+
+\section{Discontinuous Forcing Functions}
+
+\begin{itemize}
+    \item Finding $\mathcal{L} \{ t \} = \int_{0}^{\infty} e^{-st} t \, dt = \frac{1}{s^2}$ (IBP) or using $\mathcal{L} \{t\} = \mathcal{L} \{t \cdot 1 \}$ and $\mathcal{L} \{ t \cdot 1 \} = - \frac{d}{ds} (\frac{1}{s}) = \frac{1}{s^2}$
+    \item Consider $y'' + 4y = g(t)$ with $y(0) = 0$, $y'(0) = 0$ and $g(t) = \begin{cases} 
+        0 & 0 < t < 5 \\
+        \frac{t-5}{5} & t = 5 \leq t < 10 \\
+        t & 10 \leq t
+     \end{cases}$ \begin{itemize}
+         \item Can split it up into 3 parts and find relevant boundary conditions in each case to be used in the next case 
+     \end{itemize}
+     \item Piecewise defined functions can simulate the activation of a signal \begin{itemize}
+         \item $u_c(t)$ is a step function that is 0 till $x = c$ and then 1 afterwards
+         \item $u_{cd} (t)$ is an indicator function which is 1 between $c$ and $d$ and 0 everywhere else
+         \item Use a combination of step and indicator functions $= u_{cd} (t) \frac{t-c}{d-c} + u_d(t)$ which is 0 less than $c$, increasing between $c$ and $d$ and 1 for values greater than $d$
+     \end{itemize}
+     \item We can find the Laplace transforms of these functions \begin{itemize}
+         \item $\mathcal{L} \{ u_c \} = \int_{0}^{\infty} e^{-st} u_c(t) \, dt = \int_{c}^{\infty} e^{-st} \cdot 1 \, dt = \frac{e^{-cs}}{s}$
+         \item $\mathcal{L} \{ u_{cd} \} = \mathcal{L} \{ u_c - u_d \} = \frac{e^{-cs}}{s} - \frac{e^{-ds}}{s}$
+     \end{itemize}
+     \item The function $g(t)$ from earlier can be written as $u_{5,10} (t) \cdot \frac{t-5}{5} + u_{10} (t) \cdot 1 $ \begin{itemize}
+         \item Rearrange this as $\frac{1}{5} \left[ u_{5,10} (t) (t-5) + 5 u_{10} \right]  = \frac{1}{5} \left[ (u_5(t) - u_{10}(t))(t-5) + 5 u_{10} (t) \right] = \frac{1}{5} \left[ u_5(t) (t-5) - u_{10} (t) (t-10) \right]$
+         \item $h(t) = u_5(t) (t-5)$ is the time shift of $f$ by $t = 5$
+     \end{itemize}
+     \item Theorem (Laplace transform of time-shift): If $F = \mathcal{L} \{f\}$ exists for $s > a$ and $c \geq 0$, then $\mathcal{L} \{ u_c(t) f(t-c) \} = \int_{0}^{\infty} e^{-st} u_c(t) f(t-c) \, dt = \int_{c}^{\infty} e^{-st} f(t-c) \, dt = \int_{0}^{\infty} e^{-s(u+c)} f(u) \, du = e^{-sc} \int_{0}^{\infty} e^{-su} f(u) \, du = e^{-sc} \mathcal{L} \{f\}$
 \end{itemize}
 
 

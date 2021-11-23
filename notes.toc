@@ -7,3 +7,4 @@
 \contentsline {section}{\numberline {4}Laplace Transform}{2}{section.4}%
 \contentsline {section}{\numberline {5}Inverse Laplace Transform}{3}{section.5}%
 \contentsline {section}{\numberline {6}Solving ODEs with Laplace Transform}{3}{section.6}%
+\contentsline {section}{\numberline {7}Discontinuous Forcing Functions}{4}{section.7}%
