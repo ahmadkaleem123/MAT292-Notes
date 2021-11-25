@@ -136,6 +136,20 @@ Every solution of the non homogeneous problem can be written as a solution of th
          \item $h(t) = u_5(t) (t-5)$ is the time shift of $f$ by $t = 5$
      \end{itemize}
      \item Theorem (Laplace transform of time-shift): If $F = \mathcal{L} \{f\}$ exists for $s > a$ and $c \geq 0$, then $\mathcal{L} \{ u_c(t) f(t-c) \} = \int_{0}^{\infty} e^{-st} u_c(t) f(t-c) \, dt = \int_{c}^{\infty} e^{-st} f(t-c) \, dt = \int_{0}^{\infty} e^{-s(u+c)} f(u) \, du = e^{-sc} \int_{0}^{\infty} e^{-su} f(u) \, du = e^{-sc} \mathcal{L} \{f\}$
+     \item Consider the IVP $y(0) = 0$, $y'(0) = 0$ and $y'' + 4y = u_1(t)$ \begin{itemize}
+         \item $\mathcal{L} \{y'' + 4y \} = \mathcal{L} \{ u_1(t) \} \rightarrow s^2Y(s) - sy(0) + 4Y(s) = \frac{e^{-s \cdot 1}}{s}$
+         \item $(s^2 + 4) Y(s) = \frac{e^{-s}}{s} \rightarrow Y(s) = \frac{e^{-s}}{s(s^2+4)}$
+         \item $Y(s) = e^{-s} \left( \frac{1}{4s} + \frac{-\frac{1}{4}s}{s^2+4} \right) = \frac{1}{4} e^{-s} \left( \frac{1}{s} - \frac{s}{s^2+4} \right)$ 
+         \item Let $H(s) = \frac{1}{s} - \frac{s}{s^2+4}$ so that $h(t) = 1 - \cos (2t)$. $y(t) = \frac{1}{4} u_1(t) h(t-1)$ by the previous theorem 
+     \end{itemize}
+     \item Consider $y'' + 4y = g(t)$ with $y(0) = 0$, $y'(0) = 0$ and $g(t) = \begin{cases} 
+        0 & 0 < t < 5 \\
+        \frac{t-5}{5} & t = 5 \leq t < 10 \\
+        t & 10 \leq t \end{cases}$ as before \begin{itemize}
+            \item $g(t)$ is equivalent to $\frac{1}{5} ( u_5(t) (t-5) - u_{10}(t)(t-10))$
+            \item $\mathcal{L} \{y'' + 4y \} = \mathcal{L} \{g(t) \} \rightarrow (s^2+4)Y(s) = \frac{1}{5} \left[ e^{-5s} \cdot \frac{1}{s^2} - e^{-10s} \cdot \frac{1}{s^2} \right]$
+            \item $Y(s) = \frac{1}{5} \left[ e^{-5s} \frac{1}{s^2(s^2+4)} - e^{-10s} \frac{1}{s^2(s^2+4)} \right]$ so that $y(t) = \frac{1}{5} \left[ u_5(t) h(t-5) - u_{10}(t) h(t-10) \right]$ where $h(t) = \mathcal{L}^{-1} \{ \frac{1}{s^2(s^2+4)} \} = \frac{1}{4} t - \frac{1}{8} \sin(2t)$
+        \end{itemize}
 \end{itemize}
 
 
