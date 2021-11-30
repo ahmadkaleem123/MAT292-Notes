@@ -181,5 +181,23 @@ Every solution of the non homogeneous problem can be written as a solution of th
     \end{itemize}
 \end{itemize}
 
+\section{Convolution Integrals and Their Applications} \begin{itemize}
+    \item If $f$ and $g$ are piecewise continuous on $[0, \infty)$, we define their convolution as $(f * g)(t) = \int_{0}^{t} f(t- \tau) g(\tau ) \, d \tau$
+    \item Example: $f(t) = t$ and $g(t) = e^{-2t}$ \begin{itemize}
+        \item $(f * g)(t) = \int_{0}^{t} (t - \tau) e^{-2 \tau} \, d \tau = [(t - \tau) (\frac{-1}{2}) e^{-2 \tau}]_{\tau = 0}^{\tau = t} + \int_{0}^{t} (-\frac{1}{2}) e^{-2 \tau} \, d \tau = \frac{t}{2} + \frac{1}{4} e^{-2t} - \frac{1}{4}$
+    \end{itemize}
+    \item Rules for Convolutions \begin{itemize}
+        \item $f * g = g * f$
+        \item $f * (g+h) = f*g + f*h$
+        \item $f * 0 = 0$
+        \item $(cf) * g = c(f * g)$
+        \item Note: $f * 1 = f$
+    \end{itemize}
+    \item Proof that the convolution is commutative: \begin{itemize}
+        \item $f * g = \int_{0}^{t} f(t - \tau) g(\tau) \, d \tau = - \int_{t}^{0} f(u) g(t-u) \, du = \int_{0}^{t} g(t-u) f(u) \, du = g * f$
+    \end{itemize}
+    \item Convolution Theorem: If $F(s) = \mathcal{L} \{ f(t) \}$ and $G(s) = \mathcal{L} \{ g(t) \}$ both exist for $s > a \geq 0$ then $F(s) G(s) = \mathcal{L} \{ (f*g) (t) \}$ and equivalently $\mathcal{L}^{-1} \{ F(s) G(s) \} = (f * g) (t)$
+\end{itemize}
+
 
 \end{document}

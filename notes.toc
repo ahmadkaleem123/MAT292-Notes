@@ -1,11 +1,12 @@
 \babel@toc {english}{}
 \contentsline {section}{\numberline {1}Existence and Uniqueness Theorem}{1}{section.1}%
-\contentsline {section}{\numberline {2}Autonomous Equations and Population Dynamics}{1}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Logistic Growth}{1}{subsection.2.1}%
+\contentsline {section}{\numberline {2}Autonomous Equations and Population Dynamics}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Logistic Growth}{2}{subsection.2.1}%
 \contentsline {section}{\numberline {3}Direction Fields and Orbits}{2}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Reducing non homogeneous systems to homogeneous systems}{2}{subsection.3.1}%
 \contentsline {section}{\numberline {4}Laplace Transform}{2}{section.4}%
 \contentsline {section}{\numberline {5}Inverse Laplace Transform}{3}{section.5}%
-\contentsline {section}{\numberline {6}Solving ODEs with Laplace Transform}{3}{section.6}%
+\contentsline {section}{\numberline {6}Solving ODEs with Laplace Transform}{4}{section.6}%
 \contentsline {section}{\numberline {7}Discontinuous Forcing Functions}{4}{section.7}%
 \contentsline {section}{\numberline {8}Impulse Functions}{5}{section.8}%
+\contentsline {section}{\numberline {9}Convolution Integrals and Their Applications}{6}{section.9}%
