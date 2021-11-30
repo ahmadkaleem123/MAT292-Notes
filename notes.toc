@@ -8,3 +8,4 @@
 \contentsline {section}{\numberline {5}Inverse Laplace Transform}{3}{section.5}%
 \contentsline {section}{\numberline {6}Solving ODEs with Laplace Transform}{3}{section.6}%
 \contentsline {section}{\numberline {7}Discontinuous Forcing Functions}{4}{section.7}%
+\contentsline {section}{\numberline {8}Impulse Functions}{5}{section.8}%

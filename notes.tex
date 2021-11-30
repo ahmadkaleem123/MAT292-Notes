@@ -152,5 +152,34 @@ Every solution of the non homogeneous problem can be written as a solution of th
         \end{itemize}
 \end{itemize}
 
+\section{Impulse Functions}
+
+\begin{itemize}
+    \item $\delta_{\epsilon} (t) = \frac{1}{\epsilon} \cdot [u_0(t) - u_{\epsilon}(t)]$
+    \item Note: $\int_{0}^{\infty} \delta_{\epsilon}(t) \, dt = 1$
+    \item Equivalently $\delta_{\epsilon}(t) = \begin{cases}
+        \frac{1}{\epsilon} & 0 \leq t < \epsilon \\
+        0 & \mathrm{else}
+    \end{cases}$
+    \item Let $\delta = \lim_{\epsilon \rightarrow 0} \delta$ such that $\delta(t) = 0$ when $t \neq 0$
+    \item Then $\delta(t) = \begin{cases}
+        \infty & t = 0 \\
+        0 & t \neq 0
+    \end{cases}$
+    \item $\int_{0}^{\infty} \delta(t) \, dt = \lim_{\epsilon \rightarrow 0} 1 = 1$
+    \item For any function $f(t)$ continuous on $a \leq 0 < b$, we have $\int_{a}^{b} f(t) \delta(t) \, dt = \lim_{\epsilon \rightarrow 0} \int_{a}^{b} f(t) \delta_{\epsilon} (t) \, dt = \lim_{\epsilon \rightarrow 0} \int_{0}^{\epsilon} f(t) \cdot \frac{1}{\epsilon} \, dt = \lim_{\epsilon \rightarrow 0} \frac{1}{\epsilon} \int_{0}^{\epsilon} f(t) \, dt = \lim_{\epsilon \rightarrow 0} \frac{1}{\epsilon} (\epsilon - 0) f(t*)$ for some point $t*$ s.t. $0 \leq t* \leq \epsilon$ (MVT for integrals)
+    \item $ = \lim_{\epsilon \rightarrow 0} f(t*) = f(0)$ since $t* \rightarrow 0$ as $\epsilon \rightarrow 0$
+    \item $\delta$ is a generalized function (aka distribution). It is also called the Dirac delta function
+    \item We can also shift the impulse function i.e. $\delta (t-t_0) = 0$ if $t \neq t_0$
+    \item If $f(t)$ is continuous on $a \leq t_0 < b$ , $\int_{a}^{b} f(t) \delta(t- t_0) \, dt = f(t_0)$
+    \item Theorem $\mathcal{L} \{ \delta(t - t_0) \} = \int_{0}^{\infty} e^{-st} \delta(t-t_0) \, dt = f(t_0) = e^{-st_0}$
+    \item Consider an undamped oscillator $y'' + y = I_0 \delta(t)$ $y(0) = 0$, $y'(0) = 0$ \begin{itemize}
+        \item Laplace: $s^2 Y(s) + Y(s) = I_0 e^{-s \cdot 0} \implies Y(s) = I_0 \frac{1}{s^2+1}$
+        \item Inverse LT: $y(t) = I_0 \sin (t)$
+        \item However this gives $y'(0) = I_0$ but since we only consider $t \geq 0$, $y(t)$ is actually  $u_0 (t) I_0 \sin(t)$
+        \item $\lim_{t \rightarrow 0^{-}} y'(t) = 0$
+    \end{itemize}
+\end{itemize}
+
 
 \end{document}
