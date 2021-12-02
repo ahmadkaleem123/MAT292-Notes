@@ -10,3 +10,4 @@
 \contentsline {section}{\numberline {7}Discontinuous Forcing Functions}{4}{section.7}%
 \contentsline {section}{\numberline {8}Impulse Functions}{5}{section.8}%
 \contentsline {section}{\numberline {9}Convolution Integrals and Their Applications}{6}{section.9}%
+\contentsline {section}{\numberline {10}Introduction to Partial Differential Equations}{7}{section.10}%

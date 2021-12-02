@@ -199,5 +199,29 @@ Every solution of the non homogeneous problem can be written as a solution of th
     \item Convolution Theorem: If $F(s) = \mathcal{L} \{ f(t) \}$ and $G(s) = \mathcal{L} \{ g(t) \}$ both exist for $s > a \geq 0$ then $F(s) G(s) = \mathcal{L} \{ (f*g) (t) \}$ and equivalently $\mathcal{L}^{-1} \{ F(s) G(s) \} = (f * g) (t)$
 \end{itemize}
 
+\section{Introduction to Partial Differential Equations}
+
+\begin{itemize}
+    \item The Heat Equation \begin{itemize}
+        \item Consider a metal rod of length $L$. Let $u(x,t)$ be the temperature in the cross section at location $x$ and time $t$
+        \item $u_t(x,t)$ represents the change in temperature over time for a fixed slice
+        \item $u_x(x,t)$ represents the change over the rod for a fixed time
+        \item $u_{xx}(x,t)$ represents how $u_x(t)$ changes over the rod for a fixed time
+        \item The Heat Equation is given by $u_t = \alpha^2 u_{xx}$ where $a^2$ is the thermal diffusivity
+    \end{itemize}
+    \item Example: Solving the Heat Equation \begin{itemize}
+        \item We can solve this by the seperation of variables
+        \item Consider a metal rod with length 50cm, insulated on the ends and with an initial temp of 20 C throughout with the ends maintained at 0C
+        \item The homogeneous problem is $u_t = \alpha^2 u_{xx}$ with $u(0, T) = 0$, $u(L,t) = 0$ for $t>0$ and $u(x,0) = 20$
+        \item Assume that we can write $u(x,t) = X(x) T(t)$. This is a strong assumption since many functions cannot be written in this form e.g. $u(x,t) = \sin (xt)$
+        \item Using this assumption, we can rewrite the homogeneous problem as $X(x) T'(t) = \alpha^2 X''(x) T(t)$, $X(0)T(t) = 0$, $X(L)T(t) = 0$ and $X(x)T(0) = 20$
+        \item This leads to $X(0) = 0$ and $X(L) = 0$ since $T(t)$ cannot always be 0
+        \item We rearrange the equation above as $\frac{T'(t)}{\alpha^2 T(t)} = \frac{X''(x)}{X(x)} = - \lambda$
+        \item Since the two sides are equal, this expression cannot change over $x$ or $t$ so we let the expression be equal to $- \lambda$ where $\lambda$ is a constant
+        \item We can find a solution for $X''(x)$ since $\frac{X''(x)}{X(x)} = - \lambda$ which has a solution $X(x) = c_1 \cos (\sqrt{\lambda} x) + c_2 \sin (\sqrt{\lambda} x)$ and using $X(0) = 0$ and $X(L) = 0$, we get $c_1 =0$ and $0 = c_2 \sin (\sqrt{\lambda} \cdot L)$ so that $\sqrt{\lambda} \cdot L = n \cdot \pi$
+        \item We can similarly find a solution for $T(t)$ where the ODE is $\frac{T'(t)}{\alpha^2 T(t)} = - \lambda$
+        \item 
+    \end{itemize}
+\end{itemize}
 
 \end{document}
