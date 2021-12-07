@@ -218,10 +218,27 @@ Every solution of the non homogeneous problem can be written as a solution of th
         \item This leads to $X(0) = 0$ and $X(L) = 0$ since $T(t)$ cannot always be 0
         \item We rearrange the equation above as $\frac{T'(t)}{\alpha^2 T(t)} = \frac{X''(x)}{X(x)} = - \lambda$
         \item Since the two sides are equal, this expression cannot change over $x$ or $t$ so we let the expression be equal to $- \lambda$ where $\lambda$ is a constant
-        \item We can find a solution for $X''(x)$ since $\frac{X''(x)}{X(x)} = - \lambda$ which has a solution $X(x) = c_1 \cos (\sqrt{\lambda} x) + c_2 \sin (\sqrt{\lambda} x)$ and using $X(0) = 0$ and $X(L) = 0$, we get $c_1 =0$ and $0 = c_2 \sin (\sqrt{\lambda} \cdot L)$ so that $\sqrt{\lambda} \cdot L = n \cdot \pi$
+        \item We can find a solution for $X''(x)$ since $\frac{X''(x)}{X(x)} = - \lambda$ which has a solution $X(x) = c_1 \cos (\sqrt{\lambda} x) + c_2 \sin (\sqrt{\lambda} x)$ and using $X(0) = 0$ and $X(L) = 0$, we get $c_1 =0$ and $0 = c_2 \sin (\sqrt{\lambda} \cdot L)$ so that $\sqrt{\lambda} \cdot L = n \cdot \pi$. Equivalently $\lambda = \frac{n^2 \cdot \pi^2}{L^2}$
         \item We can similarly find a solution for $T(t)$ where the ODE is $\frac{T'(t)}{\alpha^2 T(t)} = - \lambda$
-        \item 
+        \item $T'(t) = - \frac{n^2 \pi^2}{L^2} \alpha^2 T(t) \implies T(t) = e^{- \frac{n^2 \pi^2}{L^2} \alpha^2 t}$
+        \item Combining into solutions of the heat equation: $u(x,t) = X(x) T(t) = \sin (\frac{n \pi}{L} x) e^{- \frac{n^2 \pi^2}{L^2} \alpha^2 t}$ (there can be any constant factor at the front)
+        \item Fundamental solutions to the Heat Equation: $u_n (x,t) = \sin (\frac{n \pi x}{L}) e^{- \frac{n^2 \pi^2}{L^2} \alpha^2 t}$
+        \item Theorem (Superposition Principle): If $a(x,t)$ and $b(x,t)$ solve the heat equation, $c_1 a(x,t) + c_2 b(x,t)$ solves the heat equation $\forall \, c_1, c_2 \in \mathbb{R}$
+        \item General solution to the heat equation is $u(x,t) = \sum_{n=1}^{\infty} c_n \sin (\frac{n \pi x}{L}) e^{- \frac{n^2 \pi ^2 \alpha^2}{L^2} t}$
+        \item Using the initial conditions, we have $20 = u(x,0) = \sum_{n=1}^{\infty} c_n \sin (\frac{n \pi x}{L})$
+        \item This will work for $c_n = \frac{2}{L} \int_{0}^{L} 20 \cdot \sin (\frac{n \pi x}{L})$ (Fourier Series)
     \end{itemize}
 \end{itemize}
+
+\section{Fourier Series}
+
+\begin{itemize}
+    \item We define an inner product on $PC[a, b]$ by $<f, g> = \int_a^{b} f(x)g(x) \, dx$
+    \item We say $f$ and $g$ are orthogonal if $<f,g> = 0$
+    \item Consider $f(x)  =\cos(x)$ and $g(x) = \sin (x)$ in $PC[- \pi, \pi]$. $<\cos x, \sin x> = \int_{- \pi }^{\pi} \cos x \sin x \, dx = 0$ $\implies \cos x, \sin x$ are orthogonal on $PC [- \pi, \pi]$
+    \item Consider $f(x) = \cos (x)$ and $g(x) = x^2$ in $PC[- \pi, \pi]$ $< \cos x, x^2 > = \int_{- \pi}^{\pi} \cos x x^2 \, dx = -4 \pi$
+    \item Theorem: The following set of functions is an orthogonal family in $PC[-L, L]$: $\left\{ \frac{1}{2}, \sin (\frac{m \pi x}{L}), \cos (\frac{m \pi x}{L}): m = 1, 2, 3, \dots \right\}$
+\end{itemize}
+
 
 \end{document}
