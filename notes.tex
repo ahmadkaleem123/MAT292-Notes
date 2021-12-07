@@ -233,11 +233,17 @@ Every solution of the non homogeneous problem can be written as a solution of th
 \section{Fourier Series}
 
 \begin{itemize}
-    \item We define an inner product on $PC[a, b]$ by $<f, g> = \int_a^{b} f(x)g(x) \, dx$
+    \item We define an inner product on $PC[a, b]$ (piecewise continuous from $a$ to $b$) by $<f, g> = \int_a^{b} f(x)g(x) \, dx$
     \item We say $f$ and $g$ are orthogonal if $<f,g> = 0$
     \item Consider $f(x)  =\cos(x)$ and $g(x) = \sin (x)$ in $PC[- \pi, \pi]$. $<\cos x, \sin x> = \int_{- \pi }^{\pi} \cos x \sin x \, dx = 0$ $\implies \cos x, \sin x$ are orthogonal on $PC [- \pi, \pi]$
     \item Consider $f(x) = \cos (x)$ and $g(x) = x^2$ in $PC[- \pi, \pi]$ $< \cos x, x^2 > = \int_{- \pi}^{\pi} \cos x x^2 \, dx = -4 \pi$
-    \item Theorem: The following set of functions is an orthogonal family in $PC[-L, L]$: $\left\{ \frac{1}{2}, \sin (\frac{m \pi x}{L}), \cos (\frac{m \pi x}{L}): m = 1, 2, 3, \dots \right\}$
+    \item Theorem: The following set of functions is an orthogonal family in $PC[-L, L]$: 
+    
+    $\left\{ \frac{1}{2}, \sin (\frac{m \pi x}{L}), \cos (\frac{m \pi x}{L}) \,: m = 1, 2, 3, \dots \right\}$
+    \item Theorem (Fourier's Theorem): Suppose $f$ is periodic with period $2L$ and both $f, f'$ belonging to $PC[-L, L]$. Then $f$ has a Fourier Series: 
+    
+    $f(x) = \frac{a_0}{2} + \sum_{m=1}^{\infty} \left( a_m \cos \frac{m \pi x}{L} + b_m \sin \frac{m \pi x}{L} \right)$, where $a_0 = \frac{2}{L} < f(x), \frac{1}{2} > = \frac{1}{L} \int_{-L}^{L} f(x) \, dx$, $a_m = \frac{1}{L} < f(x), \cos \frac{m \pi x}{L} > = \frac{1}{L} \int_{-L}^{L} f(x) \cos \frac{m \pi x}{L} \, dx$ and $b_m = \frac{1}{L} < f(x), \sin \frac{m \pi x}{L} > \, = \int_{-L}^{L} f(x) \sin \frac{m \pi x}{L} \, dx$
+    \item The Fourier series converges to $f(x)$ at all points where $f$ is continuous and to the midway point between left and right limit at all points where $f$ is discontinuous
 \end{itemize}
 
 
